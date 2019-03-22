@@ -35,10 +35,12 @@ namespace PieShop
             app.UseStaticFiles(); //return static class in wwwroot
             app.UseMvc(routes =>
             {
+                //here is just same as UseMvcWithDefaultRoute()
+                // state that default controller= Home, default action = Index and Id is optional.
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}"
-                    ); //here is just same as UseMvcWithDefaultRoute()
+                    );
 
             });
 
