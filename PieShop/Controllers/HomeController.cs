@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using PieShop.Models;
 
 namespace PieShop.Controllers
@@ -13,7 +14,10 @@ namespace PieShop.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            ViewBag.Title = "Pie Overview";
+
+            var pies = _pieRepository.GetAllPies().OrderBy(p => p.Name);
+            return View(pies);
         }
     }
 }
