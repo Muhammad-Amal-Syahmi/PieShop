@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using PieShop.Models;
 
 namespace PieShop
 {
@@ -11,6 +12,7 @@ namespace PieShop
         // In this method, we will add services to the DI container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IPieRepository, MockPieRepository>(); // whenever someone asking for an IPieRepo, a new MockPieRepo will be returned
             services.AddMvc();
         }
 
