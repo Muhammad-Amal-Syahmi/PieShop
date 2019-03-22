@@ -33,7 +33,16 @@ namespace PieShop
             app.UseDeveloperExceptionPage(); //if something go wrong, we will get an exception
             app.UseStatusCodePages(); //show status of request
             app.UseStaticFiles(); //return static class in wwwroot
-            app.UseMvcWithDefaultRoute(); //MVC middleware component
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}"
+                    ); //here is just same as UseMvcWithDefaultRoute()
+
+            });
+
+            //app.UseMvcWithDefaultRoute(); //MVC middleware component
 
             //if (env.IsDevelopment())
             //{
