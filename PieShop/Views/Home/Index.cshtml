@@ -1,20 +1,15 @@
 ﻿@model IEnumerable<PieShop.Models.Pie>
 
-<!DOCTYPE html>
+@{
+    Layout = "_Layout";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-</head>
-<body>
-    <h2>@ViewBag.Title</h2>
+<h2>@ViewBag.Title</h2>
 
-    @foreach (var pie in Model)
-    {
-        <div>
-            <h2>@pie.Name</h2>
-            <h3>@pie.Price.ToString("c")</h3>
-        </div>
-    }
-</body>
-</html>
+@foreach (var pie in Model)
+{
+    <div>
+        <h2>@pie.Name</h2>
+        <h3>@pie.Price.ToString("c")</h3>
+    </div>
+}
