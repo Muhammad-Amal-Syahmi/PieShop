@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace PieShop
+namespace PieShop.Models
 {
     public partial class AWS_POSTGREQL_TRIALContext : DbContext
     {
