@@ -8,16 +8,16 @@ EXPOSE 443
 
 FROM microsoft/dotnet:2.2-sdk-nanoserver-1803 AS build
 WORKDIR /src
-COPY ["PieShop/PieShop.csproj", "PieShop/"]
-RUN dotnet restore "PieShop/PieShop.csproj"
+COPY ["Piehop/Piehop.csproj", "Piehop/"]
+RUN dotnet restore "Piehop/Piehop.csproj"
 COPY . .
-WORKDIR "/src/PieShop"
-RUN dotnet build "PieShop.csproj" -c Release -o /app
+WORKDIR "/src/Piehop"
+RUN dotnet build "Piehop.csproj" -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish "PieShop.csproj" -c Release -o /app
+RUN dotnet publish "Piehop.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "PieShop.dll"]
+ENTRYPOINT ["dotnet", "Piehop.dll"]

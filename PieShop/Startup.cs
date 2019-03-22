@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PieShop.Models;
+using Piehop.Models;
 
-namespace PieShop
+namespace Piehop
 {
     public class Startup
     {
@@ -21,7 +21,7 @@ namespace PieShop
         // In this method, we will add services to the DI container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AWS_POSTGREQL_TRIALContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IPieRepository, PieRepository>(); // whenever someone asking for an IPieRepo, a new MockPieRepo will be returned
             services.AddMvc();

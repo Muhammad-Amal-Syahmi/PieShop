@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace PieShop.Models
+namespace Piehop.Models
 {
     public interface IPieRepository
     {
-        IEnumerable<Pie> GetAllPies();
+        IEnumerable<Pie> GetAllPie();
         Pie GetPieById(int pieId);
     }
 }

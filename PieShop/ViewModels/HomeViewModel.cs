@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using PieShop.Models;
+using Piehop.Models;
 
-namespace PieShop.ViewModels
+namespace Piehop.ViewModels
 {
     public class HomeViewModel
     {
         public string Title { get; set; }
-        public List<Pie> Pies { get; set; }
+        public List<Pie> Pie { get; set; }
     }
 }

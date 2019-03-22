@@ -1,25 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace PieShop.Models
+namespace Piehop.Models
 {
     public class PieRepository : IPieRepository
     {
-        private readonly AppDbContext _appDbContext;
+        private readonly AWS_POSTGREQL_TRIALContext _dbContext;
 
-        public PieRepository(AppDbContext appDbContext)
+        public PieRepository(AWS_POSTGREQL_TRIALContext dbContext)
         {
-            _appDbContext = appDbContext;
+            _dbContext = dbContext;
         }
 
-        public IEnumerable<Pie> GetAllPies()
+        public IEnumerable<Pie> GetAllPie()
         {
-            return _appDbContext.Pies;
+            return _dbContext.Pie;
         }
 
         public Pie GetPieById(int pieId)
         {
-            return _appDbContext.Pies.FirstOrDefault(p => p.Id == pieId);
+            return _dbContext.Pie.FirstOrDefault(p => p.Id == pieId);
         }
     }
 }
