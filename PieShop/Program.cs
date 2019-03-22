@@ -18,7 +18,7 @@ namespace PieShop
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+            WebHost.CreateDefaultBuilder(args) //at here, appsettings.json file automatically read out
                 .UseStartup<Startup>();
     }
 }
