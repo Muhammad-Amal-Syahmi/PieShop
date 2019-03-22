@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Piehop.Models;
+using PieShop.Models;
 
-namespace Piehop.ViewModels
+namespace PieShop.ViewModels
 {
     public class HomeViewModel
     {

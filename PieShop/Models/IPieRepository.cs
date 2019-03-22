@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Piehop.Models
+namespace PieShop.Models
 {
     public interface IPieRepository
     {

@@ -1,4 +1,4 @@
-﻿namespace Piehop
+﻿namespace PieShop
 {
     public partial class Pie
     {

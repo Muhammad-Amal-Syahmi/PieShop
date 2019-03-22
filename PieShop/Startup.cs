@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Piehop.Models;
+using PieShop.Models;
 
-namespace Piehop
+namespace PieShop
 {
     public class Startup
     {

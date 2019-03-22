@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Piehop.Models;
-using Piehop.ViewModels;
+using PieShop.Models;
+using PieShop.ViewModels;
 
-namespace Piehop.Controllers
+namespace PieShop.Controllers
 {
     public class HomeController : Controller
     {
