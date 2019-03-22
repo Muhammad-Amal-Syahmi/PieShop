@@ -24,6 +24,7 @@ namespace PieShop
             services.AddDbContext<AWS_POSTGREQL_TRIALContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IPieRepository, PieRepository>(); // whenever someone asking for an IPieRepo, a new MockPieRepo will be returned
+            services.AddTransient<IFeedbackRepository, FeedbackRepository>(); 
             services.AddMvc();
         }
 
