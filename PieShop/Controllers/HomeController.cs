@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using PieShop.Models;
+using PieShop.ViewModels;
 
 namespace PieShop.Controllers
 {
@@ -14,10 +15,14 @@ namespace PieShop.Controllers
         }
         public IActionResult Index()
         {
-            ViewBag.Title = "Pie Overview";
-
             var pies = _pieRepository.GetAllPies().OrderBy(p => p.Name);
-            return View(pies);
+
+            var homeViewModel = new HomeViewModel()
+            {
+                Title = "Welcome to Pie Shop",
+                Pies = pies.ToList()
+            };
+            return View(homeViewModel);
         }
     }
 }
