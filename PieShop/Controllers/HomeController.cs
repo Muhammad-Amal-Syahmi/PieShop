@@ -13,6 +13,7 @@ namespace PieShop.Controllers
         {
             _pieRepository = pieRepository;
         }
+
         public IActionResult Index()
         {
             var Pie = _pieRepository.GetAllPie().OrderBy(p => p.Name);
@@ -23,6 +24,17 @@ namespace PieShop.Controllers
                 Pie = Pie.ToList()
             };
             return View(homeViewModel);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var pie = _pieRepository.GetPieById(id);
+            if (pie == null)
+            {
+                return NotFound();
+            }
+
+            return View(pie);
         }
     }
 }
