@@ -24,7 +24,7 @@ namespace PieShop
             services.AddDbContext<AWS_POSTGREQL_TRIALContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IPieRepository, PieRepository>(); // whenever someone asking for an IPieRepo, a new MockPieRepo will be returned
-            services.AddTransient<IFeedbackRepository, FeedbackRepository>(); 
+            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
             services.AddMvc();
         }
 
@@ -34,6 +34,7 @@ namespace PieShop
             app.UseDeveloperExceptionPage(); //if something go wrong, we will get an exception
             app.UseStatusCodePages(); //show status of request
             app.UseStaticFiles(); //return static class in wwwroot
+            app.UseAuthentication(); //add support authentication
             app.UseMvc(routes =>
             {
                 //here is just same as UseMvcWithDefaultRoute()
