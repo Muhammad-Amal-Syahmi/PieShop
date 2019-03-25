@@ -20,9 +20,13 @@ namespace PieShop.Controllers
         [HttpPost]
         public IActionResult Index(Feedback feedback)
         {
-            //feedback.FeedbackId = 1;
-            _feedbackRepository.AddFeedback(feedback);
-            return RedirectToAction("FeedbackComplete");
+            if (ModelState.IsValid)
+            {
+
+                _feedbackRepository.AddFeedback(feedback);
+                return RedirectToAction("FeedbackComplete");
+            }
+            return View(feedback);
         }
 
         public IActionResult FeedbackComplete()
