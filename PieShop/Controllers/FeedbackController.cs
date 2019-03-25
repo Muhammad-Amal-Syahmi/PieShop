@@ -16,5 +16,18 @@ namespace PieShop.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Index(Feedback feedback)
+        {
+            //feedback.FeedbackId = 1;
+            _feedbackRepository.AddFeedback(feedback);
+            return RedirectToAction("FeedbackComplete");
+        }
+
+        public IActionResult FeedbackComplete()
+        {
+            return View();
+        }
     }
 }
