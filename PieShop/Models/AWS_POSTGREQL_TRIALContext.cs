@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace PieShop.Models
 {
-    public partial class AWS_POSTGREQL_TRIALContext : DbContext
+    public partial class AWS_POSTGREQL_TRIALContext : IdentityDbContext<IdentityUser>
     {
         public AWS_POSTGREQL_TRIALContext()
         {
