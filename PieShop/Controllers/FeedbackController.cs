@@ -3,11 +3,11 @@ using PieShop.Models;
 
 namespace PieShop.Controllers
 {
-    public class FeedbacktController : Controller
+    public class FeedbackController : Controller
     {
         private readonly IFeedbackRepository _feedbackRepository;
 
-        public FeedbacktController(IFeedbackRepository feedbackRepository)
+        public FeedbackController(IFeedbackRepository feedbackRepository)
         {
             _feedbackRepository = feedbackRepository;
         }
