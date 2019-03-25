@@ -12,8 +12,16 @@ namespace PieShop.Areas.Identity
         {
             builder.ConfigureServices((context, services) =>
             {
-                services.AddDefaultIdentity<IdentityUser>()
-                    .AddEntityFrameworkStores<AWS_POSTGREQL_TRIALContext>();
+                services.AddIdentity<IdentityUser, IdentityRole>(options =>
+                {
+                    options.Password.RequiredLength = 8;
+                    options.Password.RequireNonAlphanumeric = true;
+                    options.Password.RequireUppercase = true;
+                    options.User.RequireUniqueEmail = true;
+
+                })
+                .AddEntityFrameworkStores<AWS_POSTGREQL_TRIALContext>()
+                .AddDefaultUI();
             });
         }
     }
