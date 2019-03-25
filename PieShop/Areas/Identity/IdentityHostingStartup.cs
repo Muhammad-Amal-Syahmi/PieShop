@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using PieShop.Auth;
 using PieShop.Models;
 
 [assembly: HostingStartup(typeof(PieShop.Areas.Identity.IdentityHostingStartup))]
@@ -12,7 +13,7 @@ namespace PieShop.Areas.Identity
         {
             builder.ConfigureServices((context, services) =>
             {
-                services.AddIdentity<IdentityUser, IdentityRole>(options =>
+                services.AddIdentity<ApplicationUser, IdentityRole>(options =>
                 {
                     options.Password.RequiredLength = 8;
                     options.Password.RequireNonAlphanumeric = true;
