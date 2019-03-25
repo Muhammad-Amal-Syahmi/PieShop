@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using PieShop.ViewModels;
 
 namespace PieShop.Controllers
 {
@@ -33,30 +34,30 @@ namespace PieShop.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> AddUser(AddUserViewModel addUserViewModel)
-        //{
-        //    if (!ModelState.IsValid) return View(addUserViewModel);
+        [HttpPost]
+        public async Task<IActionResult> AddUser(AddUserViewModel addUserViewModel)
+        {
+            if (!ModelState.IsValid) return View(addUserViewModel);
 
-        //    var user = new IdentityUser()
-        //    {
-        //        UserName = addUserViewModel.UserName,
-        //        Email = addUserViewModel.Email
-        //    };
+            var user = new IdentityUser()
+            {
+                UserName = addUserViewModel.UserName,
+                Email = addUserViewModel.Email
+            };
 
-        //    IdentityResult result = await _userManager.CreateAsync(user, addUserViewModel.Password);
+            IdentityResult result = await _userManager.CreateAsync(user, addUserViewModel.Password);
 
-        //    if (result.Succeeded)
-        //    {
-        //        return RedirectToAction("UserManagement", _userManager.Users);
-        //    }
+            if (result.Succeeded)
+            {
+                return RedirectToAction("UserManagement", _userManager.Users);
+            }
 
-        //    foreach (IdentityError error in result.Errors)
-        //    {
-        //        ModelState.AddModelError("", error.Description);
-        //    }
-        //    return View(addUserViewModel);
-        //}
+            foreach (IdentityError error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+            return View(addUserViewModel);
+        }
 
         public async Task<IActionResult> EditUser(string id)
         {
