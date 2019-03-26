@@ -5,7 +5,7 @@ namespace PieShop.Models
 {
     public class Pie
     {
-        [BindNever]
+        //[BindNever]
         public int PieId { get; set; }
 
         [Required]

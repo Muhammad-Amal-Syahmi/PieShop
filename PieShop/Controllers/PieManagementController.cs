@@ -53,37 +53,37 @@ namespace PieShop.Controllers
 
         }
 
-        //public IActionResult EditPie(int pieId)
-        //{
-        //    var categories = _categoryRepository.Categories;
+        public IActionResult EditPie(int pieId)
+        {
+            var categories = _categoryRepository.Categories;
 
-        //    var pie = _pieRepository.Pies.FirstOrDefault(p => p.PieId == pieId);
+            var pie = _pieRepository.GetAllPie().FirstOrDefault(p => p.PieId == pieId);
 
-        //    var pieEditViewModel = new PieEditViewModel
-        //    {
-        //        Categories = categories.Select(c => new SelectListItem() { Text = c.CategoryName, Value = c.CategoryId.ToString() }).ToList(),
-        //        Pie = pie,
-        //        CategoryId = pie.CategoryId
-        //    };
+            var pieAddEditViewModel = new PieAddEditViewModel
+            {
+                Categories = categories.Select(c => new SelectListItem() { Text = c.CategoryName, Value = c.CategoryId.ToString() }).ToList(),
+                Pie = pie,
+                CategoryId = pie.CategoryId
+            };
 
-        //    var item = pieEditViewModel.Categories.FirstOrDefault(c => c.Value == pie.CategoryId.ToString());
-        //    item.Selected = true;
+            var item = pieAddEditViewModel.Categories.FirstOrDefault(c => c.Value == pie.CategoryId.ToString());
+            item.Selected = true;
 
-        //    return View(pieEditViewModel);
-        //}
+            return View(pieAddEditViewModel);
+        }
 
-        //[HttpPost]
-        //public IActionResult EditPie(PieEditViewModel pieEditViewModel)
-        //{
-        //    pieEditViewModel.Pie.CategoryId = pieEditViewModel.CategoryId;
+        [HttpPost]
+        public IActionResult EditPie(PieAddEditViewModel pieAddEditViewModel)
+        {
+            pieAddEditViewModel.Pie.CategoryId = pieAddEditViewModel.CategoryId;
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        _pieRepository.UpdatePie(pieEditViewModel.Pie);
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(pieEditViewModel);
-        //}
+            if (ModelState.IsValid)
+            {
+                _pieRepository.UpdatePie(pieAddEditViewModel.Pie);
+                return RedirectToAction("Index");
+            }
+            return View(pieAddEditViewModel);
+        }
 
         //[HttpPost]
         //public IActionResult DeletePie(string pieId)

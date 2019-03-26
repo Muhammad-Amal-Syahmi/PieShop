@@ -35,5 +35,11 @@ namespace PieShop.Models
             _dbContext.Pie.Add(pie);
             _dbContext.SaveChanges();
         }
+
+        public void UpdatePie(Pie pie)
+        {
+            _dbContext.Pie.Update(pie);
+            _dbContext.SaveChanges();
+        }
     }
 }
