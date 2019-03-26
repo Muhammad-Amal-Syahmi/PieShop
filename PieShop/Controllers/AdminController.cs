@@ -7,7 +7,7 @@ using PieShop.ViewModels;
 
 namespace PieShop.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
         private UserManager<ApplicationUser> _userManager;
