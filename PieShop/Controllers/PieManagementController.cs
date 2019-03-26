@@ -47,6 +47,8 @@ namespace PieShop.Controllers
                 _pieRepository.CreatePie(pieAddEditViewModel.Pie);
                 return RedirectToAction("Index");
             }
+            var categories = _categoryRepository.Categories;
+            pieAddEditViewModel.Categories = categories.Select(c => new SelectListItem() { Text = c.CategoryName, Value = c.CategoryId.ToString() }).ToList();
             return View(pieAddEditViewModel);
 
         }
