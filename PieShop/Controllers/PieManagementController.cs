@@ -37,17 +37,17 @@ namespace PieShop.Controllers
             return View(pieAddEditViewModel);
         }
 
-        //[HttpPost]
-        //public IActionResult AddPie(PieEditViewModel pieEditViewModel)
-        //{
-        //    //Basic validation
-        //    if (ModelState.IsValid)
-        //    {
-        //        _pieRepository.CreatePie(pieEditViewModel.Pie);
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(pieEditViewModel);
-        //}
+        [HttpPost]
+        public IActionResult AddPie(PieAddEditViewModel pieEditViewModel)
+        {
+            //Basic validation
+            if (ModelState.IsValid)
+            {
+                _pieRepository.CreatePie(pieEditViewModel.Pie);
+                return RedirectToAction("Index");
+            }
+            return View(pieEditViewModel);
+        }
 
         //public IActionResult EditPie(int pieId)
         //{

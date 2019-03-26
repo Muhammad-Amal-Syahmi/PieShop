@@ -29,5 +29,11 @@ namespace PieShop.Models
                 return _dbContext.Pie.Where(p => p.IsPieOfTheWeek);
             }
         }
+
+        public void CreatePie(Pie pie)
+        {
+            _dbContext.Pie.Add(pie);
+            _dbContext.SaveChanges();
+        }
     }
 }

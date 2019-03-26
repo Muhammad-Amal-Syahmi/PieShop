@@ -7,6 +7,6 @@ namespace PieShop.Models
         Pie GetPieById(int pieId);
         IEnumerable<Pie> GetAllPie();
         IEnumerable<Pie> PiesOfTheWeek { get; }
-
+        void CreatePie(Pie pie);
     }
 }
