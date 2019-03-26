@@ -43,6 +43,7 @@ namespace PieShop.Controllers
             //Basic validation
             if (ModelState.IsValid)
             {
+                pieAddEditViewModel.Pie.CategoryId = pieAddEditViewModel.CategoryId;
                 _pieRepository.CreatePie(pieAddEditViewModel.Pie);
                 return RedirectToAction("Index");
             }
