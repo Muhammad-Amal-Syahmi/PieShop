@@ -21,5 +21,13 @@ namespace PieShop.Models
         {
             return _dbContext.Pie.FirstOrDefault(p => p.Id == pieId);
         }
+
+        public IEnumerable<Pie> PiesOfTheWeek
+        {
+            get
+            {
+                return _dbContext.Pie.Where(p => p.IsPieOfTheWeek);
+            }
+        }
     }
 }

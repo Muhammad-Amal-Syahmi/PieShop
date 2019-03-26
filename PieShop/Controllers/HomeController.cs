@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PieShop.Models;
 using PieShop.ViewModels;
 
@@ -14,27 +13,37 @@ namespace PieShop.Controllers
             _pieRepository = pieRepository;
         }
 
-        public IActionResult Index()
-        {
-            var Pie = _pieRepository.GetAllPie().OrderBy(p => p.Name);
+        //public IActionResult Index()
+        //{
+        //    var Pie = _pieRepository.GetAllPie().OrderBy(p => p.Name);
 
-            var homeViewModel = new HomeViewModel()
+        //    var homeViewModel = new HomeViewModel()
+        //    {
+        //        Title = "Welcome to Pie Shop",
+        //        Pie = Pie.ToList()
+        //    };
+        //    return View(homeViewModel);
+        //}
+
+        public ViewResult Index()
+        {
+            var homeViewModel = new HomeViewModel
             {
-                Title = "Welcome to Pie Shop",
-                Pie = Pie.ToList()
-        };
-            return View(homeViewModel);
-    }
+                PiesOfTheWeek = _pieRepository.PiesOfTheWeek
+            };
 
-    public IActionResult Details(int id)
-    {
-        var pie = _pieRepository.GetPieById(id);
-        if (pie == null)
-        {
-            return NotFound();
+            return View(homeViewModel);
         }
 
-        return View(pie);
+        public IActionResult Details(int id)
+        {
+            var pie = _pieRepository.GetPieById(id);
+            if (pie == null)
+            {
+                return NotFound();
+            }
+
+            return View(pie);
+        }
     }
-}
 }

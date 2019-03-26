@@ -4,7 +4,9 @@ namespace PieShop.Models
 {
     public interface IPieRepository
     {
-        IEnumerable<Pie> GetAllPie();
         Pie GetPieById(int pieId);
+        IEnumerable<Pie> GetAllPie();
+        IEnumerable<Pie> PiesOfTheWeek { get; }
+
     }
 }
