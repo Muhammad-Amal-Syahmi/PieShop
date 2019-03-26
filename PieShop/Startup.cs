@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PieShop.Models;
+using PieShop.Repositories;
+using PieShop.Repositories.Interfaces;
 
 namespace PieShop
 {
@@ -25,6 +27,7 @@ namespace PieShop
 
             services.AddTransient<IPieRepository, PieRepository>(); // whenever someone asking for an IPieRepo, a new MockPieRepo will be returned
             services.AddTransient<IFeedbackRepository, FeedbackRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddMvc();
         }
 
