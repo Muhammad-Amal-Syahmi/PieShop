@@ -85,11 +85,13 @@ namespace PieShop.Controllers
             return View(pieAddEditViewModel);
         }
 
-        //[HttpPost]
-        //public IActionResult DeletePie(string pieId)
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public IActionResult DeletePie(int pieId)
+        {
+            var pie = _pieRepository.GetAllPie().FirstOrDefault(p => p.PieId == pieId);
+            _pieRepository.DeletePie(pie);
+            return RedirectToAction("Index");
+        }
 
     }
 }

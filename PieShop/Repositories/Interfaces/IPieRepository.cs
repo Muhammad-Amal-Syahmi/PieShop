@@ -9,5 +9,6 @@ namespace PieShop.Models
         IEnumerable<Pie> PiesOfTheWeek { get; }
         void CreatePie(Pie pie);
         void UpdatePie(Pie pie);
+        void DeletePie(Pie pie);
     }
 }

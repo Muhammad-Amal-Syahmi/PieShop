@@ -41,5 +41,11 @@ namespace PieShop.Models
             _dbContext.Pie.Update(pie);
             _dbContext.SaveChanges();
         }
+
+        public void DeletePie(Pie pie)
+        {
+            _dbContext.Pie.Remove(pie);
+            _dbContext.SaveChanges();
+        }
     }
 }
