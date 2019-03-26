@@ -43,7 +43,9 @@ namespace PieShop.Controllers
             var user = new ApplicationUser()
             {
                 UserName = addUserViewModel.UserName,
-                Email = addUserViewModel.Email
+                Email = addUserViewModel.Email,
+                City= addUserViewModel.City,
+                Country= addUserViewModel.Country
             };
 
             IdentityResult result = await _userManager.CreateAsync(user, addUserViewModel.Password);
