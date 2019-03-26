@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using PieShop.Auth;
 using PieShop.ViewModels;
 
 namespace PieShop.Controllers
@@ -9,9 +10,9 @@ namespace PieShop.Controllers
     [Authorize]
     public class AdminController : Controller
     {
-        private UserManager<IdentityUser> _userManager;
+        private UserManager<ApplicationUser> _userManager;
 
-        public AdminController(UserManager<IdentityUser> userManager)
+        public AdminController(UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
         }
@@ -39,7 +40,7 @@ namespace PieShop.Controllers
         {
             if (!ModelState.IsValid) return View(addUserViewModel);
 
-            var user = new IdentityUser()
+            var user = new ApplicationUser()
             {
                 UserName = addUserViewModel.UserName,
                 Email = addUserViewModel.Email
@@ -95,7 +96,7 @@ namespace PieShop.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteUser(string userId)
         {
-            IdentityUser user = await _userManager.FindByIdAsync(userId);
+            ApplicationUser user = await _userManager.FindByIdAsync(userId);
 
             if (user != null)
             {
