@@ -20,14 +20,14 @@ else
         @foreach (var pie in Model)
         {
             <tr>
-                <td>@pie.Id</td>
+                <td>@pie.PieId</td>
                 <td><img src="@pie.ImageThumbnailUrl" /></td>
                 <td>@pie.Name</td>
                 <td><input type="checkbox" onclick="return false;" asp-for="@pie.IsInStock" />
                 <td>@pie.Price</td>
                 <td>
-                    <form asp-action="DeletePie" asp-route-pieId="@pie.Id" method="post">
-                        <a class="btn btn-sm btn-primary" asp-action="EditPie" asp-route-pieId="@pie.Id">Edit</a>
+                    <form asp-action="DeletePie" asp-route-pieId="@pie.PieId" method="post">
+                        <a class="btn btn-sm btn-primary" asp-action="EditPie" asp-route-pieId="@pie.PieId">Edit</a>
                         <button type="submit" onclick="return confirm('Do you really want to delete this pie?');" class="btn btn-sm btn-danger">
                             Delete
                         </button>

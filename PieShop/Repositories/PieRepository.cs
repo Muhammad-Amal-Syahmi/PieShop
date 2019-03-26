@@ -19,7 +19,7 @@ namespace PieShop.Models
 
         public Pie GetPieById(int pieId)
         {
-            return _dbContext.Pie.FirstOrDefault(p => p.Id == pieId);
+            return _dbContext.Pie.FirstOrDefault(p => p.PieId == pieId);
         }
 
         public IEnumerable<Pie> PiesOfTheWeek

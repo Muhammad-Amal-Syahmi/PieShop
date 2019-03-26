@@ -22,7 +22,7 @@ namespace PieShop.Controllers
 
         public ViewResult Index()
         {
-            var pies = _pieRepository.GetAllPie().OrderBy(p => p.Id);
+            var pies = _pieRepository.GetAllPie().OrderBy(p => p.PieId);
             return View(pies);
         }
 
@@ -38,15 +38,16 @@ namespace PieShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddPie(PieAddEditViewModel pieEditViewModel)
+        public IActionResult AddPie(PieAddEditViewModel pieAddEditViewModel)
         {
             //Basic validation
             if (ModelState.IsValid)
             {
-                _pieRepository.CreatePie(pieEditViewModel.Pie);
+                _pieRepository.CreatePie(pieAddEditViewModel.Pie);
                 return RedirectToAction("Index");
             }
-            return View(pieEditViewModel);
+            return View(pieAddEditViewModel);
+
         }
 
         //public IActionResult EditPie(int pieId)
