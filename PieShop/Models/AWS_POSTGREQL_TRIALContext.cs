@@ -18,6 +18,7 @@ namespace PieShop.Models
 
         public virtual DbSet<Pie> Pie { get; set; }
         public virtual DbSet<Feedback> Feedback { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{

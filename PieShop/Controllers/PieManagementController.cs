@@ -25,16 +25,16 @@ namespace PieShop.Controllers
             return View(pies);
         }
 
-        public IActionResult AddPie()
-        {
-            var categories = _categoryRepository.Categories;
-            var pieAddEditViewModel = new PieAddEditViewModel
-            {
-                Categories = categories.Select(c => new SelectListItem() { Text = c.CategoryName, Value = c.CategoryId.ToString() }).ToList(),
-                CategoryId = categories.FirstOrDefault().CategoryId
-            };
-            return View(pieAddEditViewModel);
-        }
+        //public IActionResult AddPie()
+        //{
+        //    var categories = _categoryRepository.Categories;
+        //    var pieAddEditViewModel = new PieAddEditViewModel
+        //    {
+        //        Categories = categories.Select(c => new SelectListItem() { Text = c.CategoryName, Value = c.CategoryId.ToString() }).ToList(),
+        //        CategoryId = categories.FirstOrDefault().CategoryId
+        //    };
+        //    return View(pieAddEditViewModel);
+        //}
 
         //[HttpPost]
         //public IActionResult AddPie(PieEditViewModel pieEditViewModel)
