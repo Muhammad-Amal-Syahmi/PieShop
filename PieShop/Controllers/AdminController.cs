@@ -44,8 +44,8 @@ namespace PieShop.Controllers
             {
                 UserName = addUserViewModel.UserName,
                 Email = addUserViewModel.Email,
-                City= addUserViewModel.City,
-                Country= addUserViewModel.Country
+                City = addUserViewModel.City,
+                Country = addUserViewModel.Country
             };
 
             IdentityResult result = await _userManager.CreateAsync(user, addUserViewModel.Password);
@@ -64,23 +64,35 @@ namespace PieShop.Controllers
 
         public async Task<IActionResult> EditUser(string id)
         {
-            var user = await _userManager.FindByIdAsync(id);
+            var appUser = await _userManager.FindByIdAsync(id);
 
-            if (user == null)
+            if (appUser == null)
                 return RedirectToAction("UserManagement", _userManager.Users);
+
+            var user = new EditUserViewModel()
+            {
+                UserName = appUser.UserName,
+                Email = appUser.Email,
+                City = appUser.City,
+                Country = appUser.Country
+            };
 
             return View(user);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditUser(string id, string UserName, string Email)
+        public async Task<IActionResult> EditUser(EditUserViewModel editUserViewModel)
         {
-            var user = await _userManager.FindByIdAsync(id);
+            if (!ModelState.IsValid) return View(editUserViewModel);
+
+            var user = await _userManager.FindByIdAsync(editUserViewModel.Id);
 
             if (user != null)
             {
-                user.Email = Email;
-                user.UserName = UserName;
+                user.Email = editUserViewModel.Email;
+                user.UserName = editUserViewModel.UserName;
+                user.City = editUserViewModel.City;
+                user.Country = editUserViewModel.Country;
 
                 var result = await _userManager.UpdateAsync(user);
 

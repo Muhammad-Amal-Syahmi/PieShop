@@ -22,6 +22,7 @@ namespace PieShop.Areas.Identity
 
                 })
                 .AddEntityFrameworkStores<AWS_POSTGREQL_TRIALContext>()
+                .AddDefaultTokenProviders()
                 .AddDefaultUI();
             });
         }

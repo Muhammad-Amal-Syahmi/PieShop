@@ -1,10 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace PieShop.ViewModels
 {
     public class AddUserViewModel
     {
+        [BindNever]
+        public string Id { get; set; }
+
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
