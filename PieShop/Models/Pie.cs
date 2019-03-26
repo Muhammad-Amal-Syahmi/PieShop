@@ -11,5 +11,7 @@
         public string ImageThumbnailUrl { get; set; }
         public bool IsPieOfTheWeek { get; set; }
         public bool IsInStock { get; set; }
+        public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
     }
 }
