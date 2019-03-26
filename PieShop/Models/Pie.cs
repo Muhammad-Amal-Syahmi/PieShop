@@ -17,6 +17,8 @@ namespace PieShop.Models
         public string LongDescription { get; set; }
 
         [Required]
+        [DataType(DataType.Currency)]
+        [Range(0.01, 999999999, ErrorMessage = "Price must be greater than 0.00")]
         public double Price { get; set; }
 
         public string ImageUrl { get; set; }
