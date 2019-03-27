@@ -1,7 +1,11 @@
 ﻿@model IEnumerable<Pie>
 
-<h2>Pie Management</h2>
+<h2><strong>Pie Management</strong></h2>
+<br />
 
+<p class="pull-right">
+    <a class="btn btn-primary" asp-action="AddPie">Add new pie</a>
+</p>
 @if (!Model.Any())
 {
     <tr><td colspan="3" class="text-center">No pies at this point :()</td></tr>
@@ -37,6 +41,4 @@ else
         }
     </table>
 }
-<p>
-    <a class="btn btn-primary" asp-action="AddPie">Add new pie</a>
-</p>
+
