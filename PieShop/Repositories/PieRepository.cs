@@ -1,5 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using Dapper;
+using Microsoft.Extensions.Configuration;
+using Npgsql;
 
 namespace PieShop.Models
 {
@@ -15,11 +19,36 @@ namespace PieShop.Models
         public IEnumerable<Pie> GetAllPie()
         {
             return _dbContext.Pie;
+            //var pieList = new List<Pie>();
+
+            //using (IDbConnection con = new NpgsqlConnection(Configuration.GetConnectionString("DefaultConnection")))
+            //{
+            //    if (con.State == ConnectionState.Closed)
+            //    {
+            //        con.Open();
+            //    }
+
+            //    pieList = con.Query<Pie>("GetAllPies").ToList();
+            //}
+            //return pieList;
         }
 
         public Pie GetPieById(int pieId)
         {
             return _dbContext.Pie.FirstOrDefault(p => p.PieId == pieId);
+            //var pie = new Pie();
+            //using (IDbConnection con = new NpgsqlConnection(Configuration.GetConnectionString("DefaultConnection")))
+            //{
+            //    if (con.State == ConnectionState.Closed)
+            //    {
+            //        con.Open();
+            //    }
+
+            //    DynamicParameters parameter = new DynamicParameters();
+            //    parameter.Add("@pieId", pieId);
+            //    pie = con.Query<Pie>("GetPieById", parameter, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            //}
+            //return pie;
         }
 
         public IEnumerable<Pie> PiesOfTheWeek
