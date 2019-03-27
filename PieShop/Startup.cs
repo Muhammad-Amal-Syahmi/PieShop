@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +29,10 @@ namespace PieShop
             services.AddTransient<IPieRepository, PieRepository>(); // whenever someone asking for an IPieRepo, a new MockPieRepo will be returned
             services.AddTransient<IFeedbackRepository, FeedbackRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+
+            //anti-fogery as global filter
+            services.AddMvc(options => options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
+
             services.AddMvc();
         }
 
