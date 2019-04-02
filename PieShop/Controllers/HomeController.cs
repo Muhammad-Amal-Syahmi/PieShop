@@ -13,18 +13,6 @@ namespace PieShop.Controllers
             _pieRepository = pieRepository;
         }
 
-        //public IActionResult Index()
-        //{
-        //    var Pie = _pieRepository.GetAllPie().OrderBy(p => p.Name);
-
-        //    var homeViewModel = new HomeViewModel()
-        //    {
-        //        Title = "Welcome to Pie Shop",
-        //        Pie = Pie.ToList()
-        //    };
-        //    return View(homeViewModel);
-        //}
-
         public ViewResult Index()
         {
             var homeViewModel = new HomeViewModel

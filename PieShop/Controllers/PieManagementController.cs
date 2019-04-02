@@ -22,7 +22,7 @@ namespace PieShop.Controllers
 
         public ViewResult Index()
         {
-            var pies = _pieRepository.GetAllPie().OrderBy(p => p.PieId);
+            var pies = _pieRepository.GetAllPie().OrderBy(p => p.pie_id);
             return View(pies);
         }
 
@@ -43,7 +43,7 @@ namespace PieShop.Controllers
             //Basic validation
             if (ModelState.IsValid)
             {
-                pieAddEditViewModel.Pie.CategoryId = pieAddEditViewModel.CategoryId;
+                pieAddEditViewModel.Pie.category_id = pieAddEditViewModel.CategoryId;
                 _pieRepository.CreatePie(pieAddEditViewModel.Pie);
                 return RedirectToAction("Index");
             }
@@ -57,16 +57,16 @@ namespace PieShop.Controllers
         {
             var categories = _categoryRepository.Categories;
 
-            var pie = _pieRepository.GetAllPie().FirstOrDefault(p => p.PieId == pieId);
+            var pie = _pieRepository.GetAllPie().FirstOrDefault(p => p.pie_id == pieId);
 
             var pieAddEditViewModel = new PieAddEditViewModel
             {
                 Categories = categories.Select(c => new SelectListItem() { Text = c.CategoryName, Value = c.CategoryId.ToString() }).ToList(),
                 Pie = pie,
-                CategoryId = pie.CategoryId
+                CategoryId = pie.category_id
             };
 
-            var item = pieAddEditViewModel.Categories.FirstOrDefault(c => c.Value == pie.CategoryId.ToString());
+            var item = pieAddEditViewModel.Categories.FirstOrDefault(c => c.Value == pie.category_id.ToString());
             item.Selected = true;
 
             return View(pieAddEditViewModel);
@@ -75,7 +75,7 @@ namespace PieShop.Controllers
         [HttpPost]
         public IActionResult EditPie(PieAddEditViewModel pieAddEditViewModel)
         {
-            pieAddEditViewModel.Pie.CategoryId = pieAddEditViewModel.CategoryId;
+            pieAddEditViewModel.Pie.category_id = pieAddEditViewModel.CategoryId;
 
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace PieShop.Controllers
         [HttpPost]
         public IActionResult DeletePie(int pieId)
         {
-            var pie = _pieRepository.GetAllPie().FirstOrDefault(p => p.PieId == pieId);
+            var pie = _pieRepository.GetAllPie().FirstOrDefault(p => p.pie_id == pieId);
             _pieRepository.DeletePie(pie);
             return RedirectToAction("Index");
         }
