@@ -8,12 +8,12 @@ namespace PieShop.Models
 {
     public class PieRepository : IPieRepository
     {
-        private readonly AWS_POSTGREQL_TRIALContext _dbContext;
+        //private readonly AWS_POSTGREQL_TRIALContext _dbContext;
         private readonly IConfiguration _configuration;
 
-        public PieRepository(AWS_POSTGREQL_TRIALContext dbContext, IConfiguration configuration)
+        public PieRepository(/*AWS_POSTGREQL_TRIALContext dbContext,*/ IConfiguration configuration)
         {
-            _dbContext = dbContext;
+            //_dbContext = dbContext;
             _configuration = configuration;
         }
 
@@ -21,7 +21,6 @@ namespace PieShop.Models
         {
             var pieList = new List<Pie>();
 
-            //Dapper codes
             var query = "SELECT * FROM Pie";
 
             using (var con = new NpgsqlConnection(_configuration.GetConnectionString("DefaultConnection")))
