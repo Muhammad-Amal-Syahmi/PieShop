@@ -3,7 +3,7 @@
 <h2>Create a new pie</h2>
 
 <form asp-controller="PieManagement" asp-action="AddPie" method="post" class="form-horizontal" role="form">
-    <h4>Enter the pie details below</h4>
+    <h5>Enter the pie details below</h5>
     <hr />
     <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -56,17 +56,17 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="Pie.is_in_stock" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <input asp-for="Pie.is_in_stock" class="form-control" />
+        <div class="ml-3 mr-auto">
+            <input type="checkbox" asp-for="Pie.is_in_stock" />
+            <label asp-for="Pie.is_in_stock"></label>
             <span asp-validation-for="Pie.is_in_stock" class="text-danger"></span>
         </div>
     </div>
 
     <div class="form-group">
-        <label asp-for="Pie.is_pie_of_the_week" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <input asp-for="Pie.is_pie_of_the_week" class="form-control" />
+        <div class="ml-3 mr-auto">
+            <input type="checkbox" asp-for="Pie.is_pie_of_the_week" />
+            <label asp-for="Pie.is_pie_of_the_week"></label>
             <span asp-validation-for="Pie.is_pie_of_the_week" class="text-danger"></span>
         </div>
     </div>
