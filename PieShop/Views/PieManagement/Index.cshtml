@@ -3,42 +3,48 @@
 <h2><strong>Pie Management</strong></h2>
 <br />
 
-<p class="pull-right">
-    <a class="btn btn-primary" asp-action="AddPie">Add new pie</a>
-</p>
+<div class="row">
+    <div class="col-auto mr-auto"></div>
+    <div class="col-auto"><a class="btn btn-primary mb-2" asp-action="AddPie">Add new pie</a></div>
+</div>
 @if (!Model.Any())
 {
     <tr><td colspan="3" class="text-center">No pies at this point :()</td></tr>
 }
 else
 {
-    <table class="table table-condensed table-bordered">
-        <tr>
-            <th>Pie ID</th>
-            <th>Image</th>
-            <th>Name</th>
-            <th>In stock</th>
-            <th>Price</th>
-            <th>Actions</th>
-        </tr>
-        @foreach (var pie in Model)
-        {
-            <tr>
-                <td>@pie.pie_id</td>
-                <td><img src="@pie.image_thumbnail_url" /></td>
-                <td>@pie.name</td>
-                <td><input type="checkbox" onclick="return false;" asp-for="@pie.is_in_stock" />
-                <td>@pie.price</td>
-                <td>
-                    <form asp-action="DeletePie" asp-route-pieId="@pie.pie_id" method="post">
-                        <a class="btn btn-sm btn-primary" asp-action="EditPie" asp-route-pieId="@pie.pie_id">Edit</a>
-                        <button type="submit" onclick="return confirm('Do you really want to delete this pie?');" class="btn btn-sm btn-danger">
-                            Delete
-                        </button>
-                    </form>
-                </td>
-            </tr>
-        }
-    </table>
+    <div class="card shadow">
+        <div class="table-responsive">
+            <table class="table table-hover text-nowrap">
+                <tr>
+                    <th>Pie ID</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>In stock</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var pie in Model)
+                {
+                    <tr>
+                        <td>@pie.pie_id</td>
+                        <td><img src="@pie.image_thumbnail_url" /></td>
+                        <td>@pie.name</td>
+                        <td><input type="checkbox" onclick="return false;" asp-for="@pie.is_in_stock" />
+                        <td>@pie.price</td>
+                        <td>
+                            <form asp-action="DeletePie" asp-route-pieId="@pie.pie_id" method="post">
+                                <a class="btn btn-sm btn-primary" asp-action="EditPie" asp-route-pieId="@pie.pie_id">Edit</a>
+                                <button type="submit" onclick="return confirm('Do you really want to delete this pie?');" class="btn btn-sm btn-danger">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
 }
 
