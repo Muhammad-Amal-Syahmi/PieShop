@@ -20,4 +20,8 @@
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PieShop.DataAccess\PieShop.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
