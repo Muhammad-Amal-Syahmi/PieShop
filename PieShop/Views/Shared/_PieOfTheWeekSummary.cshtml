@@ -1,28 +1,20 @@
 ﻿@model Pie
 
-<div class="col-sm-4 col-lg-4 col-md-4">
-    <div class="thumbnail">
-        <img src="@Model.image_thumbnail_url" alt="">
-        <div class="caption">
-            <h3 class="pull-right">@Model.price.ToString("c")</h3>
-            <h3>
-                <a style="text-decoration:none" asp-controller="Home" asp-action="Details" asp-route-id="@Model.pie_id">@Model.name</a>
-            </h3>
-            <p>@Model.short_description</p>
-        </div>
-        <div class="addToCart">
-            <p class="button">
-                @if (Model.is_in_stock)
-                {
-                    <a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="AddToShoppingCart"
-                       asp-route-pieId="@Model.pie_id">Add to cart</a>
-                }
-                else
-                {
-                    <a class="btn btn-danger" disabled>Out Of Stock!</a>
-                }
+<div class="card card-margin" style="width: 18rem;">
+    <img class="card-img-top" src="@Model.image_thumbnail_url" alt="@Model.name image">
+    <div class="card-body">
+        <h5 class="card-title">@Model.name</h5>
+        <p class="card-text">@Model.short_description</p>
+        @if (Model.is_in_stock)
+        {
+            <a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="AddToShoppingCart"
+               asp-route-pieId="@Model.pie_id">Add to cart</a>
+        }
+        else
+        {
+            <a class="btn btn-danger text-white disabled">Out Of Stock!</a>
+        }
 
-            </p>
-        </div>
+        <a class="btn btn-info" asp-action="Details" asp-route-id="@Model.pie_id">Details</a>
     </div>
 </div>
