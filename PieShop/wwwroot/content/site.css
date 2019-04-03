@@ -1,6 +1,6 @@
 ﻿body {
     padding-bottom: 20px;
-    background-color: #fdb079;
+    background-color: #f5f7fb;
 }
 
 .body-content{
@@ -11,4 +11,9 @@
 .card-margin {
     margin-top: 20px;
     margin-right: 20px;
+}
+
+.navbar-custom {
+    background-color: #f77a21;
+    margin-bottom: 20px;
 }
