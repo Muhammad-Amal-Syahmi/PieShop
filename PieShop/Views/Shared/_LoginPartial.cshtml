@@ -2,58 +2,27 @@
 @using PieShop.Auth
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-@*@if (SignInManager.IsSignedIn(User))
-    {
-        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-                </li>
-                <li>
-                    <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
-                </li>
-            </ul>
-        </form>
-    }
-    else
-    {
-        <ul class="nav navbar-nav navbar-right">
-            <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
-            <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
-        </ul>
-    }*@
+
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="dropdown">
-
-        <a asp-area="Identity"
-           asp-page="/Account/Manage/Index"
-           title="Manage" class="dropdown-toggle"
-           data-toggle="dropdown"
-           role="button"
-           aria-haspopup="true"
-           aria-expanded="false">
-            Hello @UserManager.GetUserName(User)! <span class="caret"></span>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle mr-sm-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hello @UserManager.GetUserName(User) !
         </a>
-        <ul class="dropdown-menu">
-
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li>
-                <a style="padding:0!important; ">
-                    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/" method="post" id="logoutForm">
-                        <input type="submit" value="Log Out" style="background:none!important;border:none; text-align:left; padding-left:25px; display: block; width:100%;">
-                    </form>
-                </a>
-            </li>
-        </ul>
-
-
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Account Settings</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" style="padding:0!important; ">
+                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/" method="post" id="logoutForm">
+                    <input type="submit" value="Log Out" style="background:none!important;border:none; text-align:left; padding-left:25px; display: block; width:100%;">
+                </form>
+            </a>
+        </div>
     </li>
 }
 else
 {
-    <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
-    <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+    <li class="nav-item"><a asp-area="Identity" asp-page="/Account/Register" class="nav-link">Register</a></li>
+    <li class="nav-item"><a asp-area="Identity" asp-page="/Account/Login" class="nav-link">Login</a></li>
 }
 
