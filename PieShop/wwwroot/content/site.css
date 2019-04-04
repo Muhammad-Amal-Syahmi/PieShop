@@ -1,4 +1,6 @@
-﻿body {
+﻿@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+body {
     padding-bottom: 20px;
     background-color: #f5f7fb;
 }
@@ -15,4 +17,8 @@
 
 .bg-navbar {
     background-color: #f77a21;
+}
+
+.font-pacifico {
+    font-family: 'Pacifico', cursive;
 }
