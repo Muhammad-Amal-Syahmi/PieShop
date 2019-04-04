@@ -7,7 +7,7 @@
 
     @foreach (var pie in Model.PiesOfTheWeek)
     {
-        @await Html.PartialAsync("_PieOfTheWeekSummary", pie)
+        @await Html.PartialAsync("_PieCard", pie)
     }
 
 </div>

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Pie>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<h2><strong>Pies</strong></h2>
+<h4>All of our Pies - all for you!</h4>
+<br />
+<div class="row justify-content-md-center">
+
+    @foreach (var pie in Model)
+    {
+        @await Html.PartialAsync("_PieCard", pie)
+    }
+
+</div>
