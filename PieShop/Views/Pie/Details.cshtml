@@ -1,0 +1,24 @@
+﻿@model Pie
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2><strong>@Model.name</strong></h2>
+<br />
+
+<div class="thumbnail">
+    <img alt="@Model.name" width="70%" src="@Model.image_url" />
+    <div class="caption">
+        <h3 class="pull-right"><strong>@Model.price.ToString("c")</strong></h3>
+        <h3>
+            @Model.name
+        </h3>
+        <br />
+        <h4>@Model.short_description</h4>
+        <h4>@Model.long_description</h4>
+    </div>
+</div>
+
