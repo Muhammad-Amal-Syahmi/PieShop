@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using PieShop.Models;
+using PieShop.DataAccess.Models;
 
 namespace PieShop.ViewModels
 {

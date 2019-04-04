@@ -1,4 +1,6 @@
-﻿namespace PieShop.Models
+﻿using PieShop.DataAccess.Models;
+
+namespace PieShop.Models
 {
     public interface IFeedbackRepository
     {

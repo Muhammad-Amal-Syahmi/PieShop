@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using PieShop.Models;
+using PieShop.DataAccess;
+using PieShop.DataAccess.Models;
 using PieShop.Repositories.Interfaces;
 
 namespace PieShop.Repositories

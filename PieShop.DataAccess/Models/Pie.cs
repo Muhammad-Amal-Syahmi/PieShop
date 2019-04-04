@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PieShop.Models
+namespace PieShop.DataAccess.Models
 {
     public class Pie
     {

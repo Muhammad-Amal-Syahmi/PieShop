@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PieShop.DataAccess.Models;
 using PieShop.Models;
 
 namespace PieShop.Controllers

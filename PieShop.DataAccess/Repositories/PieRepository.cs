@@ -3,6 +3,7 @@ using System.Linq;
 using Dapper;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
+using PieShop.DataAccess.Models;
 
 namespace PieShop.Models
 {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using PieShop.Auth;
-using PieShop.Models;
+using PieShop.DataAccess;
+using PieShop.DataAccess.Auth;
 
 [assembly: HostingStartup(typeof(PieShop.Areas.Identity.IdentityHostingStartup))]
 namespace PieShop.Areas.Identity

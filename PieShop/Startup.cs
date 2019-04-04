@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PieShop.DataAccess;
 using PieShop.Models;
 using PieShop.Repositories;
 using PieShop.Repositories.Interfaces;

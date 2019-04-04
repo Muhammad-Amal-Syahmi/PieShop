@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using PieShop.Auth;
+using PieShop.DataAccess.Auth;
+using PieShop.DataAccess.Models;
 
-namespace PieShop.Models
+namespace PieShop.DataAccess
 {
     public partial class AWS_POSTGREQL_TRIALContext : IdentityDbContext<ApplicationUser>
     {

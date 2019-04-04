@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace PieShop.Models
+namespace PieShop.DataAccess.Models
 {
     public class Feedback
     {

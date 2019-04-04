@@ -1,4 +1,7 @@
-﻿namespace PieShop.Models
+﻿using PieShop.DataAccess;
+using PieShop.DataAccess.Models;
+
+namespace PieShop.Models
 {
     public class FeedbackRepository : IFeedbackRepository
     {

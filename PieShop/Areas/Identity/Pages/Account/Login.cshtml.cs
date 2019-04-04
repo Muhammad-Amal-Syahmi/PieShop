@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using PieShop.Auth;
+using PieShop.DataAccess.Auth;
 
 namespace PieShop.Areas.Identity.Pages.Account
 {

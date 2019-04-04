@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using PieShop.Models;
+using PieShop.DataAccess.Models;
 
 namespace PieShop.ViewModels
 {

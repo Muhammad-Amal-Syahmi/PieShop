@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PieShop
+namespace PieShop.DataAccess.Models
 {
     public partial class Category
     {
